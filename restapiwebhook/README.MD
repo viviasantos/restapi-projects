@@ -65,31 +65,29 @@ Go back to the Post Incident method
 Click Test
 Fill in the test values:
 
-vbnet
-Copy
-Edit
-number: INC999999
-short_description: Test from ServiceNow
-priority: 1
-Click Test
+1. vbnet
+2. Copy
+3. Edit
+4. number: INC999999
+5. hort_description: Test from ServiceNow
+6. priority: 1
+7. Click Test
 
 ### ➡️ **Go to Webhook.site and confirm that the POST was received.**
 
 ---
 
 ### ✅ Step 5: **Create a Business Rule for Automation**
-Navigate to: System Definition > Business Rules
-Click New
-Fill in the following:
+Navigate to: System Definition > Business Rules > Click New > Fill in the following:
 
-Name: Send P1 Incident to Webhook
-Table: Incident
-When: After
-Insert: ☑️ Checked
-Update: ❌ Unchecked
-Condition: current.priority == 1
-Go to the Advanced tab:
-Check ✅ Advanced
+- Name: Send P1 Incident to Webhook
+- Table: Incident
+- When: After
+- Insert: ☑️ Checked
+- Update: ❌ Unchecked
+- Condition: current.priority == 1
+- Go to the Advanced tab:
+- Check ✅ Advanced
 
 Paste the following script:
 javascript
@@ -123,7 +121,7 @@ Edit
 
 ---
 ### 🧠** Notes**
-🧪 Webhook.site is for testing only — use a real API endpoint in production (e.g., Jira Cloud).
-🔐 Add authentication in the REST Message if required (e.g., Bearer Token).
-🔄 Extend the payload to include additional fields like assigned_to, state, etc.
+- 🧪 Webhook.site is for testing only — use a real API endpoint in production (e.g., Jira Cloud).
+- 🔐 Add authentication in the REST Message if required (e.g., Bearer Token).
+- 🔄 Extend the payload to include additional fields like assigned_to, state, etc.
 
