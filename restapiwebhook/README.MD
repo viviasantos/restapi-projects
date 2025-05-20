@@ -50,7 +50,7 @@ Edit
 
 5. In the **Content** field, paste:
 
-```json
+json
 {
   "summary": "Incident ${number}",
   "description": "${short_description}",
