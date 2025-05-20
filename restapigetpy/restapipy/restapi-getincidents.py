@@ -8,8 +8,8 @@ import requests
 url = 'https://dev347129.service-now.com/api/now/table/incident?sysparm_query=caller_id%3D77ad8176731313005754660c4cf6a7de&sysparm_display_value=true&sysparm_exclude_reference_link=true&sysparm_fields=number%2Cparent%2Cmade_sla%2Ccaused_by%2Cwatch_list%2Cupon_reject%2Csys_updated_on%2Cchild_incidents&sysparm_limit=100'
 
 # Eg. User name="admin", Password="admin" for this code sample.
-user = 'integration_user'
-pwd = 'Vivi8148#'
+user = 'USER AUTENTICATOR'
+pwd = 'PIN'
 
 # Set proper headers
 headers = {"Content-Type":"application/json","Accept":"application/json"}
