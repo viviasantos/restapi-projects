@@ -37,4 +37,3 @@ print(df[['number', 'parent', 'made_sla', 'sys_updated_on']])
 
 # Save to Excel (optional)
 df.to_excel('C:/Users/ssant/Desktop/GitHub/restapi-projects/tabelas/incidents.xlsx', index=False)
-
