@@ -62,6 +62,8 @@ After saving the REST Message:
 }
 Click Submit
 
+Click Submit
+
 ✅ Step 4: Test the REST Method (Optional)
 Go back to the Post Incident method
 
@@ -144,7 +146,3 @@ Edit
 ---
 
 ✅ **DICA**: No GitHub, isso já ficará com o estilo certo — com **negrito**, **códigos em blocos**, **listas**, **tabelas** e **emojis bem organizados**.
-
-Se quiser, posso revisar também seu `README.md` completo com o projeto inteiro para deixar mais visual e profissional. Deseja isso?
-
-
