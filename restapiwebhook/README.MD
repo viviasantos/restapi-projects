@@ -58,6 +58,8 @@ json
 }
 Click Submit
 
+---
+
 ### ✅ Step 4: **Test the REST Method (Optional)**
 Go back to the Post Incident method
 Click Test
@@ -72,6 +74,8 @@ priority: 1
 Click Test
 
 ### ➡️ **Go to Webhook.site and confirm that the POST was received.**
+
+---
 
 ### ✅ Step 5: **Create a Business Rule for Automation**
 Navigate to: System Definition > Business Rules
@@ -102,6 +106,8 @@ if (current.priority == 1) {
 }
 Click Submit
 
+---
+
 ### 🎯 **Final Result**
 Every time a Priority 1 Incident is created in ServiceNow, a POST request will automatically be sent to your Webhook URL, including incident details in JSON format — simulating integration with systems like Jira, Slack, or other APIs.
 
@@ -114,6 +120,8 @@ Edit
   "description": "Network outage in HQ",
   "priority": "1"
 }
+
+---
 ### 🧠** Notes**
 🧪 Webhook.site is for testing only — use a real API endpoint in production (e.g., Jira Cloud).
 🔐 Add authentication in the REST Message if required (e.g., Bearer Token).
