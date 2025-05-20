@@ -1,56 +1,60 @@
-📌 Project Steps: Automating Incident POST from ServiceNow to Webhook
-This section details all steps to set up an automated POST integration from ServiceNow to a Webhook endpoint, simulating real-time API communication (e.g., to Jira).
+# 📌 Project Steps: Automating Incident POST from ServiceNow to Webhook
 
-✅ Step 1: Generate a Webhook Endpoint for Testing
-Go to https://webhook.site
+This section details all steps to set up an automated POST integration from **ServiceNow** to a **Webhook endpoint**, simulating real-time API communication (e.g., to Jira).
 
-A unique URL will be generated automatically, like:
+---
 
-arduino
-Copy
-Edit
+## ✅ Step 1: Generate a Webhook Endpoint for Testing
+
+Go to: [https://webhook.site](https://webhook.site)
+
+It will automatically generate a unique URL, for example:
+
 https://webhook.site/d761c695-037f-4d3d-af89-d6cb36ed47e2
-Copy this URL — you’ll use it in ServiceNow's REST Message.
 
-✅ Step 2: Create a REST Message in ServiceNow
-Navigate to: System Web Services > Outbound > REST Message
-
-Click New
-
-Fill out the form:
-
-Name: Send Incident to Webhook
-
-Endpoint: Paste your Webhook.site URL
-
-Authentication: Leave empty (not required for webhook.site)
-
-Click Submit
-
-✅ Step 3: Create a POST Method
-After saving the REST Message, open it again
-
-Go to the HTTP Methods tab
-
-Click New
-
-Fill in the fields:
-
-Name: Post Incident
-
-HTTP Method: POST
-
-Add a header:
-
-Name: Content-Type
-
-Value: application/json
-
-In the Content box, paste:
-
-json
+markdown
 Copy
 Edit
+
+📋 **Copy this URL** — you’ll use it in ServiceNow's REST Message.
+
+---
+
+## ✅ Step 2: Create a REST Message in ServiceNow
+
+📍 Navigate to: `System Web Services > Outbound > REST Message`
+
+1. Click **New**
+2. Fill out the form:
+
+   - **Name**: `Send Incident to Webhook`  
+   - **Endpoint**: *Paste your Webhook.site URL*  
+   - **Authentication**: *Leave empty* (not required for webhook.site)
+
+3. Click **Submit**
+
+---
+
+## ✅ Step 3: Create a POST Method
+
+After saving the REST Message:
+
+1. Open it again  
+2. Go to the **HTTP Methods** tab  
+3. Click **New** and fill in:
+
+- **Name**: `Post Incident`
+- **HTTP Method**: `POST`
+
+🧾 **Add HTTP Header**:
+
+| Name         | Value              |
+|--------------|--------------------|
+| Content-Type | application/json   |
+
+🧾 **In the Content field, paste:**
+
+```json
 {
   "summary": "Incident ${number}",
   "description": "${short_description}",
@@ -63,7 +67,7 @@ Go back to the Post Incident method
 
 Click Test
 
-Enter sample values:
+Enter test values:
 
 number: INC999999
 
@@ -73,14 +77,14 @@ priority: 1
 
 Click Test
 
-➡️ Go to Webhook.site to confirm that the POST request was received.
+➡️ Go to Webhook.site and confirm the POST was received.
 
 ✅ Step 5: Create a Business Rule for Automation
-Go to: System Definition > Business Rules
+📍 Navigate to: System Definition > Business Rules
 
 Click New
 
-Fill out the form:
+Fill in:
 
 Name: Send P1 Incident to Webhook
 
@@ -88,13 +92,17 @@ Table: Incident
 
 When: After
 
-Insert: ✅ Checked
+Insert: ☑️ Checked
 
 Update: ❌ Unchecked
 
 Condition: current.priority == 1
 
-Go to the Advanced tab, check Advanced, and paste:
+Go to the Advanced tab:
+
+Check ✅ Advanced
+
+Paste the following script:
 
 javascript
 Copy
@@ -105,15 +113,15 @@ if (current.priority == 1) {
   r.setStringParameterNoEscape('short_description', current.short_description);
   r.setStringParameterNoEscape('priority', current.priority);
 
-  var response = r.execute();
+  var response = r.execute(); // Send the POST
   gs.info('Webhook POST sent. Response: ' + response.getStatusCode());
 }
 Click Submit
 
 ✅ Final Result
-Every time a Priority 1 Incident is created in ServiceNow, it will automatically send a POST request to your Webhook endpoint with incident details in JSON format — simulating an integration with an external system (e.g., Jira, Slack, etc.).
+Now, every time a Priority 1 Incident is created in ServiceNow, it will automatically send a POST request to your Webhook URL with the incident details in JSON format — simulating integration with systems like Jira, Slack, or other APIs.
 
-🧪 Example of Sent Payload
+🧪 Example of Payload Sent
 json
 Copy
 Edit
@@ -123,8 +131,20 @@ Edit
   "priority": "1"
 }
 🧠 Notes
-Webhook.site is for testing only — use a real API endpoint in production.
+🧪 Webhook.site is for testing only. In production, use the real API endpoint (e.g., Jira Cloud).
 
-You can add authentication to the REST Message if required (e.g., Bearer Token).
+🔐 Add authentication in the REST Message if the target system requires it (e.g., Bearer Token).
 
-Extend the payload to include more fields like assigned_to, state, etc.
+🔄 You can extend the payload to include fields like assigned_to, state, etc.
+
+yaml
+Copy
+Edit
+
+---
+
+✅ **DICA**: No GitHub, isso já ficará com o estilo certo — com **negrito**, **códigos em blocos**, **listas**, **tabelas** e **emojis bem organizados**.
+
+Se quiser, posso revisar também seu `README.md` completo com o projeto inteiro para deixar mais visual e profissional. Deseja isso?
+
+
