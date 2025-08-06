@@ -1,4 +1,4 @@
-## 📋 Steps to Reproduce
+## Steps to Reproduce
 
 1. **Access Your ServiceNow Instance**  
    - Log in with your admin or developer account.  
