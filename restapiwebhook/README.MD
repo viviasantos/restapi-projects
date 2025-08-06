@@ -1,10 +1,10 @@
-## 📌 Project Steps: Automating Incident POST from ServiceNow to Webhook
+## Project Steps: Automating Incident POST from ServiceNow to Webhook
 
 This section details all steps to set up an automated POST integration from **ServiceNow** to a **Webhook endpoint**, simulating real-time API communication (e.g., to **Jira**, **Slack**, etc.).
 
 ---
 
-### ✅ **Step 1: Generate a Webhook Endpoint for Testing**
+### **Step 1: Generate a Webhook Endpoint for Testing**
 
 1. Go to: [https://webhook.site](https://webhook.site)
 2. A unique URL will be generated automatically, for example:
@@ -19,7 +19,7 @@ Edit
 
 ---
 
-### ✅ **Step 2: Create a REST Message in ServiceNow**
+### **Step 2: Create a REST Message in ServiceNow**
 
 - Navigate to: `System Web Services > Outbound > REST Message`
 - Click **New**
@@ -33,7 +33,7 @@ Edit
 
 ---
 
-### ✅ **Step 3: Create the POST Method**
+### **Step 3: Create the POST Method**
 
 1. Reopen the REST Message you just created
 2. Go to the **HTTP Methods** tab → Click **New**
@@ -60,7 +60,7 @@ Click Submit
 
 ---
 
-### ✅ Step 4: **Test the REST Method (Optional)**
+### Step 4: **Test the REST Method (Optional)**
 Go back to the Post Incident method
 Click Test
 Fill in the test values:
@@ -73,11 +73,11 @@ Fill in the test values:
 6. priority: 1
 7. Click Test
 
-### ➡️ **Go to Webhook.site and confirm that the POST was received.**
+### ➡**Go to Webhook.site and confirm that the POST was received.**
 
 ---
 
-### ✅ Step 5: **Create a Business Rule for Automation**
+### Step 5: **Create a Business Rule for Automation**
 Navigate to: System Definition > Business Rules > Click New > Fill in the following:
 
 - Name: Send P1 Incident to Webhook
@@ -106,10 +106,10 @@ Click Submit
 
 ---
 
-### 🎯 **Final Result**
+### **Final Result**
 Every time a Priority 1 Incident is created in ServiceNow, a POST request will automatically be sent to your Webhook URL, including incident details in JSON format — simulating integration with systems like Jira, Slack, or other APIs.
 
-🧪 Example Payload Sent
+Example Payload Sent
 json
 Copy
 Edit
@@ -120,8 +120,8 @@ Edit
 }
 
 ---
-### 🧠** Notes**
-- 🧪 Webhook.site is for testing only — use a real API endpoint in production (e.g., Jira Cloud).
-- 🔐 Add authentication in the REST Message if required (e.g., Bearer Token).
-- 🔄 Extend the payload to include additional fields like assigned_to, state, etc.
+###** Notes**
+- Webhook.site is for testing only — use a real API endpoint in production (e.g., Jira Cloud).
+- Add authentication in the REST Message if required (e.g., Bearer Token).
+- Extend the payload to include additional fields like assigned_to, state, etc.
 
